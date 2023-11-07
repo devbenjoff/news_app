@@ -3,7 +3,7 @@ import 'package:go_router/go_router.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:news_app/common/presentation/widgets/scaffold_with_nav_bar.dart';
 import 'package:news_app/common/router/routes.dart';
-import 'package:news_app/features/home/home_page.dart';
+import 'package:news_app/features/home/presentation/home_page.dart';
 import 'package:news_app/features/saved_news/saved_news_page.dart';
 import 'package:news_app/features/settings/settings_page.dart';
 

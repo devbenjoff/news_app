@@ -16,7 +16,7 @@ class ScaffoldWithNavBar extends StatelessWidget {
     return Scaffold(
       body: navigationShell,
       bottomNavigationBar: Padding(
-        padding: const EdgeInsets.only(bottom: 16.0, left: 16.0, right: 16.0),
+        padding: const EdgeInsets.all(16),
         child: GNav(
           selectedIndex: navigationShell.currentIndex,
           onTabChange: (value) => _onTap(context, value),
@@ -24,7 +24,7 @@ class ScaffoldWithNavBar extends StatelessWidget {
           duration: const Duration(milliseconds: 800),
           gap: 8.5,
           activeColor: AppColors.primaryColor,
-          color: AppColors.white,
+          color: Theme.of(context).colorScheme.onPrimary,
           tabBackgroundColor: AppColors.tertiary,
           tabs: const [
             GButton(icon: Icons.home, text: 'Home'),
