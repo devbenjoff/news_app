@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class Observers extends ProviderObserver {
@@ -7,7 +8,7 @@ class Observers extends ProviderObserver {
     Object? value,
     ProviderContainer container,
   ) {
-    print('''
+    debugPrint('''
     {
       "provider": "${provider.name ?? provider.runtimeType}",
       "newValue": "initialized with the value $value",
@@ -22,7 +23,7 @@ class Observers extends ProviderObserver {
     Object? newValue,
     ProviderContainer container,
   ) {
-    print('''
+    debugPrint('''
     {
       "provider": "${provider.name ?? provider.runtimeType}",
       "newValue": "$newValue",
@@ -37,7 +38,7 @@ class Observers extends ProviderObserver {
     StackTrace stackTrace,
     ProviderContainer container,
   ) {
-    print('''
+    debugPrint('''
     {
       "provider": "${provider.name ?? provider.runtimeType}",
       "newValue": "failed with the error $error",
@@ -50,7 +51,7 @@ class Observers extends ProviderObserver {
     ProviderBase provider,
     ProviderContainer container,
   ) {
-    print('''
+    debugPrint('''
     {
       "provider": "${provider.name ?? provider.runtimeType}",
       "newValue": "disposed",

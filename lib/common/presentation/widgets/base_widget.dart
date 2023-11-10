@@ -3,8 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:loggy/loggy.dart';
 import 'package:news_app/common/domain/entities/failure.dart';
 import 'package:news_app/common/domain/providers/global_failure_provider.dart';
-import 'package:news_app/common/domain/providers/global_loading_provider.dart';
-import 'package:news_app/common/presentation/widgets/base_loading_indicator.dart';
+import 'package:news_app/features/home/domain/notifiers/news_notifier.dart';
 
 class BaseWidget extends ConsumerStatefulWidget {
   final Widget child;
@@ -18,12 +17,10 @@ class _BaseWidgetState extends ConsumerState<BaseWidget> {
   @override
   Widget build(BuildContext context) {
     ref.globalFailureListener(context);
-    final showLoading = ref.watch(globalLoadingProvider);
 
     return Stack(
       children: [
         widget.child,
-        if (showLoading) const BaseLoadingIndicator(),
       ],
     );
   }
@@ -38,6 +35,11 @@ extension _WidgetRefExtensions on WidgetRef {
         SnackBar(
           content: Text(failure.title),
           backgroundColor: failure.isCritical ? Colors.red : Colors.orange,
+          behavior: SnackBarBehavior.floating,
+          action: SnackBarAction(
+            label: 'Try again',
+            onPressed: () => refresh(asyncNewsListProvider),
+          ),
         ),
       );
 

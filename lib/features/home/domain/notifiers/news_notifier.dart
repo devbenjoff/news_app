@@ -1,26 +1,18 @@
-import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'dart:core';
+
 import 'package:news_app/features/home/data/repositories/news_repository.dart';
-import 'package:news_app/features/home/domain/notifiers/news_state.dart';
+import 'package:news_app/features/home/domain/entities/news_list.dart';
+import 'package:riverpod_annotation/riverpod_annotation.dart';
 
-final newsNotifierProvider = StateNotifierProvider<NewsNotifier, NewsState>(
-  (ref) => NewsNotifier(
-    ref.watch(newsRepositoryProvider),
-  )..getNews(),
-);
+import '../../../../common/domain/async_notifier_mixin.dart';
 
-class NewsNotifier extends StateNotifier<NewsState> {
-  final NewsRepository _newsRepository;
+part 'news_notifier.g.dart';
 
-  NewsNotifier(this._newsRepository) : super(const NewsState.initial());
-
-  Future<void> getNews() async {
-    state = const NewsState.loading();
-
-    final result = await _newsRepository.getNews();
-
-    state = result.fold(
-      (failure) => NewsState.error(failure),
-      (news) => NewsState.data(news),
-    );
-  }
+@riverpod
+class AsyncNewsList extends _$AsyncNewsList with AsyncNotifierMixin {
+  @override
+  FutureOr<NewsList> build() => executeBuildWithGlobalFailure(
+        () => ref.read(newsRepositoryProvider).getNews(),
+        ref,
+      );
 }
