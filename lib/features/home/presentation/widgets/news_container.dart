@@ -1,16 +1,20 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:news_app/features/home/domain/entities/news.dart';
+import 'package:news_app/features/saved_news/domain/saved_news_notifier.dart';
 
-class NewsContainer extends StatelessWidget {
+class NewsContainer extends ConsumerWidget {
   final News news;
+  final bool saved;
 
   const NewsContainer({
     super.key,
     required this.news,
+    this.saved = false,
   });
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     return Container(
       padding: const EdgeInsets.all(8),
       decoration: BoxDecoration(
@@ -63,6 +67,20 @@ class NewsContainer extends StatelessWidget {
                       ),
                 ),
               ],
+            ),
+          ),
+          const SizedBox(width: 10),
+          IconButton(
+            onPressed: () {
+              if (saved) {
+                ref.read(asyncSavedNewsProvider.notifier).deleteNews(news);
+              } else {
+                ref.read(asyncSavedNewsProvider.notifier).addNews(news);
+              }
+            },
+            icon: Icon(
+              saved ? Icons.delete : Icons.bookmark_border,
+              color: Theme.of(context).colorScheme.onPrimary,
             ),
           )
         ],

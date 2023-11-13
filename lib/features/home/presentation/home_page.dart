@@ -37,8 +37,9 @@ class _HomePageState extends ConsumerState<HomePage> {
                       child: ListView.separated(
                         itemCount: value.newsList.length,
                         physics: const BouncingScrollPhysics(),
-                        itemBuilder: (context, index) =>
-                            NewsContainer(news: value.newsList[index]),
+                        itemBuilder: (context, index) => NewsContainer(
+                          news: value.newsList[index],
+                        ),
                         separatorBuilder: (_, __) => const SizedBox(height: 8),
                       ),
                     ),
