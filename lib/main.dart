@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:hive_flutter/hive_flutter.dart';
+import 'package:news_app/common/domain/providers/app_theme_provider.dart';
 import 'package:news_app/common/presentation/widgets/base_widget.dart';
 import 'package:news_app/common/router/router.dart';
 import 'package:news_app/features/home/domain/entities/news.dart';
@@ -34,7 +35,7 @@ class MyApp extends ConsumerWidget {
       title: 'News App',
       darkTheme: newsAppDarkTheme,
       theme: newsAppLightTheme,
-      themeMode: ThemeMode.system,
+      themeMode: ref.watch(appThemeProvider),
       builder: (context, child) => BaseWidget(
         child: child ?? const SizedBox(),
       ),
