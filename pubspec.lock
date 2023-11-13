@@ -241,6 +241,22 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "5.3.3"
+  envied:
+    dependency: "direct main"
+    description:
+      name: envied
+      sha256: "2fe4f98d3b9a264134b0e7842f736d46846f8722e31d760505f8924a2c12a93e"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.5.1"
+  envied_generator:
+    dependency: "direct dev"
+    description:
+      name: envied_generator
+      sha256: e8dd787b3d8298a4aa653a50aa80856184cc72875c0206e38d55e90c527266a9
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.5.1"
   equatable:
     dependency: "direct main"
     description:

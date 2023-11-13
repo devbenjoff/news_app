@@ -20,7 +20,7 @@ class _ApiClient implements ApiClient {
 
   @override
   Future<NewsListResponse> getNews({
-    String apiKey = AppConstants.apiKey,
+    required String apiKey,
     String country = 'us',
   }) async {
     const _extra = <String, dynamic>{};

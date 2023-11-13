@@ -2,6 +2,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:news_app/common/data/api_client.dart';
 import 'package:news_app/common/data/entity_mapper.dart';
 import 'package:news_app/common/data/providers.dart';
+import 'package:news_app/env.dart';
 import 'package:news_app/features/home/data/mappers/news_entity_mapper.dart';
 import 'package:news_app/features/home/data/models/news_response.dart';
 import 'package:news_app/features/home/domain/entities/news.dart';
@@ -29,7 +30,7 @@ class NewsRepositoryImpl implements NewsRepository {
 
   @override
   Future<NewsList> getNews() async {
-    final newsListResponse = await _apiClient.getNews();
+    final newsListResponse = await _apiClient.getNews(apiKey: Env.apiKey);
     final newsList = newsListResponse.articles
         .map((newsResponse) => _newsEntityMapper(newsResponse))
         .where((element) => element.title != '[Removed]')

@@ -6,7 +6,7 @@ part of 'saved_news_notifier.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$asyncSavedNewsHash() => r'ced8bb749a9e085087896fac0e11085cf797888e';
+String _$asyncSavedNewsHash() => r'32e74337dbc060f5fabb2cf35441da02c10bd44a';
 
 /// See also [AsyncSavedNews].
 @ProviderFor(AsyncSavedNews)
