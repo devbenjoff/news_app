@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:news_app/common/utils/context_extension.dart';
 import 'package:news_app/features/home/domain/notifiers/news_notifier.dart';
 import 'package:news_app/features/home/presentation/widgets/news_container_shimmer.dart';
 
@@ -29,7 +30,7 @@ class _HomePageState extends ConsumerState<HomePage> {
                 const SizedBox(height: 20),
                 Text(
                   'Breaking News',
-                  style: Theme.of(context).textTheme.headlineLarge,
+                  style: context.textTheme.headlineLarge,
                 ),
                 const SizedBox(height: 20),
                 switch (newsList) {

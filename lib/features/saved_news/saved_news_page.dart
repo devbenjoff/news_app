@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:news_app/common/utils/context_extension.dart';
 import 'package:news_app/features/home/presentation/widgets/news_container.dart';
 import 'package:news_app/features/saved_news/domain/saved_news_notifier.dart';
 
@@ -20,7 +21,7 @@ class SavedNewsPage extends ConsumerWidget {
               const SizedBox(height: 20),
               Text(
                 'Saved News',
-                style: Theme.of(context).textTheme.headlineLarge,
+                style: context.textTheme.headlineLarge,
               ),
               const SizedBox(height: 20),
               Expanded(

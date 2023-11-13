@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:news_app/common/utils/context_extension.dart';
 import 'package:news_app/features/home/domain/entities/news.dart';
 import 'package:news_app/features/saved_news/domain/saved_news_notifier.dart';
 
@@ -19,7 +20,7 @@ class NewsContainer extends ConsumerWidget {
       padding: const EdgeInsets.all(8),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(14),
-        color: Theme.of(context).colorScheme.onSecondary,
+        color: context.colorScheme.onSecondary,
       ),
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -44,27 +45,21 @@ class NewsContainer extends ConsumerWidget {
               children: [
                 Text(
                   news.source.name,
-                  style: Theme.of(context).textTheme.titleSmall?.copyWith(
-                        color: Theme.of(context)
-                            .colorScheme
-                            .onPrimary
-                            .withOpacity(0.6),
-                      ),
+                  style: context.textTheme.titleSmall?.copyWith(
+                    color: context.colorScheme.onPrimary.withOpacity(0.6),
+                  ),
                 ),
                 Text(
                   news.title,
-                  style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                        color: Theme.of(context).colorScheme.onPrimary,
-                      ),
+                  style: context.textTheme.titleMedium?.copyWith(
+                    color: context.colorScheme.onPrimary,
+                  ),
                 ),
                 Text(
                   news.author,
-                  style: Theme.of(context).textTheme.titleSmall?.copyWith(
-                        color: Theme.of(context)
-                            .colorScheme
-                            .onPrimary
-                            .withOpacity(0.6),
-                      ),
+                  style: context.textTheme.titleSmall?.copyWith(
+                    color: context.colorScheme.onPrimary.withOpacity(0.6),
+                  ),
                 ),
               ],
             ),
@@ -80,7 +75,7 @@ class NewsContainer extends ConsumerWidget {
             },
             icon: Icon(
               saved ? Icons.delete : Icons.bookmark_border,
-              color: Theme.of(context).colorScheme.onPrimary,
+              color: context.colorScheme.onPrimary,
             ),
           )
         ],

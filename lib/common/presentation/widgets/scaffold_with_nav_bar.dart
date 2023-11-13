@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
+import 'package:news_app/common/utils/context_extension.dart';
 import 'package:news_app/theme/app_colors.dart';
 
 class ScaffoldWithNavBar extends StatelessWidget {
@@ -24,7 +25,7 @@ class ScaffoldWithNavBar extends StatelessWidget {
           duration: const Duration(milliseconds: 800),
           gap: 8.5,
           activeColor: AppColors.primaryColor,
-          color: Theme.of(context).colorScheme.onPrimary,
+          color: context.colorScheme.onPrimary,
           tabBackgroundColor: AppColors.tertiary,
           tabs: const [
             GButton(icon: Icons.home, text: 'Home'),
